@@ -27,13 +27,13 @@ var w = window, d = document, b = d.body, f = d.createElement("form"), scrollTim
 	o.l = Q(d,"form.findonpage")[0] || false;
 	if(o.l) return o.l.style.display="block";
 	f.className = "findonpage";
-	f.innerHTML = "<input type=text><input type=submit class=prev value=&lt;><input type=submit class=next value=\"&gt;\"><br><input type=checkbox class=regex id=regex> <label for=regex>regex</label><input type=checkbox class=case id=cAse> <label for=cAse title=Case-Sensitive>Case</label><input type=button value=clear><input type=button value=x><style>.findonpage{background:rgba(255,255,255,0.8);position:absolute;top:0;left:0;}.found_string{border-radius:5px;border:1px dotted #555;color:black !important;background:yellow !important;padding:1px;}.found_highlight{padding:3px;border:1px solid black;box-shadow:0 0 8px #555;}</style>";
+	f.innerHTML = "<input type=text><input type=submit class=prev value=&lt;><input type=submit class=next value=\"&gt;\"><br><input type=checkbox class=regex id=regex> <label for=regex>regex</label><input type=checkbox class=case id=cAse> <label for=cAse title=Case-Sensitive>Case</label><input type=button value=clear><input type=button value=x><style>.findonpage{z-index:99999;background:rgba(255,255,255,0.8);position:absolute;top:0;left:0;}.found_string{border-radius:5px;border:1px dotted #555;color:black !important;background:yellow !important;padding:1px;}.found_highlight{padding:3px;border:1px solid black;box-shadow:0 0 8px #555;}</style>";
 	var hasNext = /\bnext\b/;
 	var i=0, _, submits = Q(f,"[type=submit]");
 	while(_=submits[i++]){
-	L(_,"click",function(e){
-		o.dir = hasNext.test(this.className) ? 1:0;
-	});
+		L(_,"click",function(e){
+			o.dir = hasNext.test(this.className) ? 1:0;
+		});
 	};
 	b.appendChild(f);
 	L(f,"submit",function(e){
